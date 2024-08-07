@@ -82,7 +82,7 @@ const HOME = () => {
             loading
               ? <div className='job-profile-count mt-10px'><Skeleton width={300} height={20} /></div>
               : <div className='job-profile-count mt-10px'>
-                {isVisible ? 0 : data?.length} item(s) found in the list
+                {isVisible ? 0 : dataShow?.length} item(s) found in the list
               </div>
           }
         </div>
