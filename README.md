@@ -15,3 +15,15 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
+
+#
+
+untuk menjalankan react.js
+1. npm i -f
+2. npm start
+
+feature
+
+retrieve data card
+search by title, descipsi dan tanggal
+show and hide card
