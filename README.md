@@ -25,6 +25,9 @@ untuk menjalankan react.js
 
 feature
 
-retrieve data card
-search by title, descipsi dan tanggal
-show and hide card
+1. retrieve data card
+2. search by 
+##### title, 
+##### descipsi 
+##### tanggal
+3. show and hide card
