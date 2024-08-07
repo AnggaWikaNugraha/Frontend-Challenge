@@ -1,6 +1,4 @@
 import React from 'react';
-import SignUp from './pages/register';
-import SignIn from './pages/login';
 import Home from './pages/home';
 
 
