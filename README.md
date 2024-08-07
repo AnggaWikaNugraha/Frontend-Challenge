@@ -21,6 +21,7 @@
 untuk menjalankan react.js
 1. npm i -f
 2. npm start
+3. cek http://localhost:3000/
 
 feature
 
