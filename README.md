@@ -27,7 +27,7 @@ feature
 
 1. retrieve data card
 2. search by 
-##### title, 
-##### descipsi 
-##### tanggal
+- title, 
+- descipsi 
+- tanggal
 3. show and hide card
