@@ -1,87 +1,31 @@
 import { Skeleton } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import IComp from '../assets/one_dig.png'
+import AxiosFake from '../api/fakeApi';
 
 const HOME = () => {
 
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
   const [isVisible, setisVisible] = useState(false);
   const [showModalSorting, setShowModalSorting] = useState(false);
 
-  const [data, setdata] = useState([
-    {
-      id: 1,
-      job_name: 'tes job 1',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 2,
-      job_name: 'tes job 2',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 3,
-      job_name: 'tes job 3',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 4,
-      job_name: 'tes job 4',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 5,
-      job_name: 'tes job 5',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '5 january 2025'
-    },
-    {
-      id: 6,
-      job_name: 'tes job 6',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 7,
-      job_name: 'tes job 7',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 8,
-      job_name: 'tes job 8',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 9,
-      job_name: 'tes job 9',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '9 january 2025'
-    },
-    {
-      id: 10,
-      job_name: 'tes job 10',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 11,
-      job_name: 'tes job 11',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-    {
-      id: 12,
-      job_name: 'tes job 12',
-      company_name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet egestas augue. Proin at interdum ligula. Duis malesuada id mi non scelerisque.',
-      created_at: '1 january 2025'
-    },
-  ]);
+  const [data, setdata] = useState([]);
+
+  const GetData = async () => {
+
+    setloading(true)
+    const Data = await AxiosFake('Get', '/fakeAPi', 200)
+    setTimeout(() => {
+      setloading(false)
+    }, 2000);
+
+    setdata(Data?.data);
+
+  }
+
+  useEffect(() => {
+    GetData()
+  }, []);
 
   return (
     <>
@@ -195,7 +139,27 @@ const ISearch = () => {
 const LoadingComp = () => {
   return (
     <>
-      Loading
+      {
+        [1, 2, 3, 4, 5, 6].map((res) => {
+          return (
+            <>
+              <div className='job-profile-satuan-kontainer'>
+                <div>
+                  <div className='b2-bold mt-4px job-profile-satuan-title'><Skeleton width={200} height={20} /></div>
+                  <div className='mt-4px job-profile-satuan-kontainer-wrapp'>
+                    <Skeleton width={300} height={20} />
+                  </div>
+                </div>
+                <div className='job-profile-satuan-kontainer-wrapp-right'>
+                  <div style={{ justifyContent: 'center' }} className='job-profile-satuan-kontainer-wrapp-right-sub'>
+                    <Skeleton width={40} height={20} />
+                  </div>
+                </div>
+              </div>
+            </>
+          )
+        })
+      }
     </>
   )
 }
