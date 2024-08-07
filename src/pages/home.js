@@ -17,9 +17,9 @@ const HOME = () => {
 
     setloading(true)
     const Data = await AxiosFake('Get', '/fakeAPi', 200)
-    // setTimeout(() => {
-    //   setloading(false)
-    // }, 2000);
+    setTimeout(() => {
+      setloading(false)
+    }, 2000);
 
     setdata(Data?.data);
     setdataShow(Data?.data)
