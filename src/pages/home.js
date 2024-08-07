@@ -17,9 +17,9 @@ const HOME = () => {
 
     setloading(true)
     const Data = await AxiosFake('Get', '/fakeAPi', 200)
-    setTimeout(() => {
-      setloading(false)
-    }, 2000);
+    // setTimeout(() => {
+    //   setloading(false)
+    // }, 2000);
 
     setdata(Data?.data);
     setdataShow(Data?.data)
@@ -348,10 +348,10 @@ const LoadingComp = () => {
             return (
               <>
                 <div className='job-profile-satuan-kontainer'>
-                  <div>
-                    <div className='b2-bold mt-4px job-profile-satuan-title'><Skeleton width={200} height={20} /></div>
+                  <div className='w-100'>
+                    <div className='b2-bold mt-4px job-profile-satuan-title'><Skeleton width={'100%'} height={20} /></div>
                     <div className='mt-4px job-profile-satuan-kontainer-wrapp'>
-                      <Skeleton width={300} height={20} />
+                      <Skeleton width={'100%'} height={20} />
                     </div>
                   </div>
                   <div className='job-profile-satuan-kontainer-wrapp-right'>
