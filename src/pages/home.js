@@ -32,7 +32,8 @@ const HOME = () => {
     if (data?.length > 0) {
       const result = data.filter(job =>
         job.job_name.toLowerCase().includes(value) ||
-        job.desc_name.toLowerCase().includes(value)
+        job.desc_name.toLowerCase().includes(value) ||
+        job.created_at.toLowerCase().includes(value)
       );
 
       setloading(true)
